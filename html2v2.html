@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER ZONE</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="css1v2.css">
+</head>
+<body style="color:white; background-color: black;display: flex;">
+    <button id="walletConnect">Connect Wallet</button>
+    <button id="MintAlphaProv" style="display: none;">Mint Alpha Provider Access</button>
+    
+    <button id="CreateContract" style="display: none;">Create from factory</button>
+    
+    <div id="dynamDiv" style="display: block;">
+        <br>
+         <input type="text" id="msgInput" placeholder="Ingrese su mensaje aquí" style="display: none;">
+        <button id="postMsg" style="display: none;">post</button>
+        <br>
+        <button id="read" style="display: none;">read</button>
+        <p id="msgSee" style="display: none;"></p>
+        <input type="text" id="regName" placeholder=" Registre su nombre/apodo" style="display: none;">
+        <button id="regNameBut" style="display: none;">Registrar Nombre</button>
+        <input type="text" id="SearchName" placeholder="Busque un Alpha aquí">
+        <button id="SearchBut">Buscar</button>
+        <p id="AlphaAddress"></p> <button id="connectContract">Connect contract</button>
+        <br>
+        <ul id="signalList"></ul>
+        <button id="traBut" onclick="intervalToseeAList1(); viewTradingSignalList()">see trad MSGs</button>
+
+
+        <button id="addTeamBut" style="display: none;">Añadir equipo</button>
+                <input type="text" style="display: none;" id="AddToTeam" placeholder="Registre nuevo equipo"> <input style="display: none;" type="text" id="hisName" placeholder="Registre Nombre socio">
+
+
+        
+    </div> 
+    <script src="js1v2.js"></script>
+    
+    
+</body>
+</html>

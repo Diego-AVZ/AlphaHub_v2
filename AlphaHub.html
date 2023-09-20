@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaHub</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="AlphaHubCss.css">
+</head>
+<body style="color:rgb(255, 255, 255); background-color: rgb(0, 0, 0); overflow: hidden;">
+    <div id="IniDiv">
+        <button id="walletConnect">Connect Wallet</button>
+        <p id="iniText2">Find Info About the Best Oportunities</p>
+        <p id="iniText">The Social Platform for Alphas</p>
+        <button id="CreateContract">Become an AlphaProv</button>
+        <button id="UserAccess">User Access</button>
+    </div>
+
+    <div id="AlphaProv">
+        
+        <div id="CustomAlpha">
+            <input class="input1" onfocus="clearPlaceholder1()" onblur="restorePlaceholder1()" type="text" id="regName" placeholder="Registre su nombre/apodo">
+            <button class="but1" id="regNameBut" >Registrar</button>
+        </div>
+        <div id="shareInfo">
+            <input class="input1" onfocus="clearPlaceholder2()" onblur="restorePlaceholder2()" type="text" id="msgInput" placeholder="Ingrese su mensaje aquí">
+            <button class="but1" id="postMsg">post</button>
+        </div>
+        <div id="CustomTeam">
+            <input class="input1" onfocus="clearPlaceholder3()" onblur="restorePlaceholder3()" type="text" id="AddToTeam" placeholder="Registre nuevo equipo"> <input class="input1" onfocus="clearPlaceholder4()" onblur="restorePlaceholder4()" type="text" id="hisName" placeholder="Registre Nombre socio">
+            <button class="but1" id="addTeamBut">Añadir</button>
+            <input class="input1" onfocus="clearPlaceholder7()" onblur="restorePlaceholder7()" type="text" id="RemoveTeam" placeholder="Introduzca la dirección del socio a eliminar"> 
+            <button class="but1" id="RemoveTeamBut">Eliminar</button>
+        </div>
+        <div id="CustomEconomics">
+            <input class="input1" onfocus="clearPlaceholder5()" onblur="restorePlaceholder5()" type="number" placeholder="precio de su información" id="setPrice">
+            <button class="but1" id ="setPriceBut">Set Price</button>
+            <input class="input1" onfocus="clearPlaceholder6()" onblur="restorePlaceholder6()" type="number" placeholder="Duración de acceso por pago" id="setDur">
+            <button class="but1" id ="setDurBut">Set Time</button>
+            <button class="but1" id="withdrawETH">Withdraw</button>
+            <input class="input1" onfocus="clearPlaceholder9()" onblur="restorePlaceholder9()" type="text" placeholder="Address to pay" id="addressToPay"><input class="input1" onfocus="clearPlaceholder10()" onblur="restorePlaceholder10()" type="number" placeholder="Amount of ETH to pay" id="amountToPay">
+            <button class="but1" id ="PayTeamBut">Pay Partner</button>
+        </div>
+        <button id="MintAlphaProv">Get Alpha Provider Roll</button>
+
+        <button id="CustomAlphaBut"> Alpha Zone</button>
+        <button id="shareInfoBut">Share Info</button>
+        <button id="CustomTeamBut">Your Team</button>
+        <button id="CustomEconomicsBut">Economics</button>
+        
+    </div>
+
+    <div id="Client" style="display:none;">
+        <input type="text" id="SearchName" placeholder="Busque un Alpha aquí" onfocus="clearPlaceholder2()">
+        <button id="SearchBut">Buscar</button>
+        <p id="AlphaAddress"></p> <button id="connectContract">Connect contract</button>
+        <button id="traBut">see trad MSGs</button>
+        <ul id="signalList"></ul>
+        <button id="payToAlphaProv">Pay</button>
+        <button id="RegPayment">Follow this AlphaPorv</button>
+
+    </div>
+    
+<script src="js1v2.js"></script>
+</body>
+</html>
