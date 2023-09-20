@@ -77,6 +77,8 @@ contract factoryAlphaProvTradSig {
     mapping(address => address) ContractsCreated;
     mapping(address => address) ContractCreatedBy;
 
+    /*Función para comprobar que no se ha creado el mismo nombre*/
+
     function createCustomAlphaProv() public{
         require(hasCreateOne[msg.sender] == false);
         AlphaProv = msg.sender;
@@ -100,6 +102,9 @@ contract factoryAlphaProvTradSig {
         return(AlphaNameToContract[introName]);
     }
 
+    function seeIfHasCreated() public view returns(bool){
+        return(hasCreateOne[msg.sender]);
+    }
 
 }
 
@@ -135,14 +140,23 @@ contract CustomAlphaProv is AlphaProviderAccess{
         return false;
     }
 
-    string[] TradingSignals;
-    string[] DeFiSignals;
-    string[] OnchainSignals;
+    string[] public TradingMsgs;
+    string[] public DeFiMsgs;
+    string[] public OnchainMsgs;
 
     function postTradingSignal(string memory postMsg) public onlyContractOwnerOrPartner{
         require(isAlphaProv == true || isPartner(msg.sender), "you are not AlphaProvider, please get access NFT");
         messages2[msg.sender].push(postMsg);
-        TradingSignals.push(postMsg);
+        TradingMsgs.push(postMsg);
+    }
+
+    function getTradingSignal(uint256 index) public view returns (string memory) {
+        require(index < TradingMsgs.length, "Index out of bounds");
+        return TradingMsgs[index];
+    }
+
+    function TradingMsgsLength() public view returns (uint256) {
+           return TradingMsgs.length;
     }
 
     function AddToTeam(address newTeam, string memory PartnerName) public {
@@ -159,9 +173,39 @@ contract CustomAlphaProv is AlphaProviderAccess{
                 partner.pop();
                 return;
             }
-
         }
     }
+
+    struct traSignal {
+        uint256 priceEntry;
+        uint256 stopLoss;
+        uint256 takeProfit; 
+        uint8 direction;
+        uint16 traSignalId;
+    }
+
+    traSignal[] public traSignals;
+
+    uint16 traSignalNum;
+
+
+    function addtraSignal(uint256 _priceEntry, uint256 _stopLoss, uint256 _takeProfit, uint8 _direction, uint16 _traSignalId) public {
+        traSignalNum++;
+        _traSignalId  =  traSignalNum + 1;
+        traSignal memory newtraSignal = traSignal(_priceEntry, _stopLoss, _takeProfit, _direction, _traSignalId);
+        traSignals.push(newtraSignal);
+    }
+
+    function gettraSignalsCount() public view returns (uint256) {
+        return traSignals.length;
+    }
+
+    function gettraSignal(uint256 index) public view returns (uint256, uint256, uint256, uint8, uint16) {
+        require(index < traSignals.length, "traSignal index out of bounds");
+        traSignal storage TraSignal = traSignals[index];
+        return (TraSignal.priceEntry, TraSignal.stopLoss, TraSignal.takeProfit, TraSignal.direction, TraSignal.traSignalId);
+    }
+
 
     //Payment:
 
@@ -194,7 +238,7 @@ contract CustomAlphaProv is AlphaProviderAccess{
         require(seeIfHasPaid() == false);
         uint fee = msg.value / 20;     // Modificar la fee y añadir una func() para que onlyOwner pueda modificar fee
         payable(feeRecipient).transfer(fee);
-        supply2 = supply2 + 1;
+        supply2 = supply2 + 1; 
         lastPayment[msg.sender] = block.timestamp;
     }
 
@@ -215,5 +259,27 @@ contract CustomAlphaProv is AlphaProviderAccess{
         require(msg.sender == ContractOwner, "Not Owner");
         payable(partnerToPay).transfer(amountToPay);
     }
+
+    //ESTILO 
+
+    uint8 styleValue;
+
+    function changeStyle(uint8 _styleValue) public{
+        styleValue = _styleValue;
+    } 
+
+    function getStyleValue() public view returns(uint8){
+        return(styleValue);
+    }
+
+    // En JS => if styleValue == 1, 2, 3... {.classList.add("nombre de la clase determinada")}
+
+
+    /*
+        AÑADIR
+        ¬¬¬¬¬¬
+
+        Personalización estética: Nombre AlphaProv, estilos...
+     */
 
 }
