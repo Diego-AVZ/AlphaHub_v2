@@ -1,0 +1,136 @@
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 0.65vw; 
+}
+
+/* Estilos para el riel de la barra */
+::-webkit-scrollbar-track {
+  background-color: hwb(0 0% 100% / 0); /* Color de fondo del riel */
+}
+
+/* Estilos para el pulgar de la barra */
+::-webkit-scrollbar-thumb {
+  background-color: #636363b2; /* Color del pulgar */
+  border-radius: 1vw; /* Borde redondeado del pulgar */
+}
+
+/* Estilos para el pulgar cuando se desplaza */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #696968b2; /* Color del pulgar al pasar el cursor */
+}
+
+
+
+#walletConnect {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 83vw;
+    width: 14vw;
+    height: 3vw;
+    background-color: rgb(0, 44, 222);
+    border-radius: 20px;
+    color: white;
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+} #walletConnect:hover {cursor: pointer; background-color: rgb(55, 88, 218);}
+
+#SearchName {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 40%;
+    transform: translateX(-50%);
+    width: 20vw;
+    height: 3vw;
+    background-color: rgba(255, 255, 255, 0.801);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    display: flex;
+    text-align: center;
+} #SearchName:focus { outline: none;}
+
+#SearchBut {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 56%;
+    transform: translateX(-50%);
+    width: 10vw;
+    height: 3.1vw;
+    background-color: rgb(0, 85, 212);
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+} #SearchBut:hover {cursor: pointer; background-color: rgb(55, 88, 218);}
+
+#AlphaAddress{
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 1vw;
+    margin-top: 130px;
+    margin-left: 41.5%;
+    transform: translateX(-50%);
+    /*max-width: 10vw;
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;   ASI APARECE CON PUNTOS SUSPENSIVOS Y NO MUESTRA LA DIRECCION COMPLETA*/ 
+}
+
+#connectContract{
+    position: absolute;
+    margin-top: 160px;
+    margin-left: 41.5%;
+    transform: translateX(-50%);
+    width: 13vw;
+    height: 3.1vw;
+    background-color: rgb(0, 85, 212);
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    display: none;
+} #connectContract:hover {cursor: pointer; background-color: rgb(87, 118, 241);}
+
+#traBut {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 41.5%;
+    transform: translateX(-50%);
+    width: 13vw;
+    height: 3.1vw;
+    background-color: rgb(0, 85, 212);
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    display: block;
+} #traBut:hover {cursor: pointer; background-color: rgb(87, 118, 241);}
+
+#signalList {
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 15.5%;
+    transform: translateX(-50%);
+    width: 20vw;
+    height: 15vw;
+    background-color: rgba(11, 39, 82, 0);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    line-height: 20px;
+    border-style: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    rotate: 180deg;
+    padding-right: 2.5vw;
+    list-style-type: none;
+    display: none;
+}
+
