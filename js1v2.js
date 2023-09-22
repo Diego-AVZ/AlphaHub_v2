@@ -994,7 +994,7 @@ var traBut = document.getElementById("traBut");
 
 
 
-
+// Trading MSGs
 async function viewTradingSignalList (){
   console.log("viewTradingSignalList called");
   borrarLista();
@@ -1043,74 +1043,58 @@ function borrarLista() {
   }
 }
 
+// Trading SIGNALS
 
-
-
-/*
-var i; // COMENTARIO: i debe ser = Length - 1, si no da error
-var signal;
-var signalList = document.getElementById("signalList");
-
-const asyncFunction = async function(){
+async function viewTradingSignalList2() {
+  console.log("viewTradingSignalList called");
+  borrarLista();
   try {
-    console.log("trying...");
-    var accounts = await web3Instance1.eth.getAccounts();
-    signalList.style.display = "none";
-    contract2 = new web3Instance1.eth.Contract(CustomContractABI, CustomContract2);
-    signal = await contract2.methods.getTradingSignal(i).call({ from: accounts[0]});
-    const listItem = document.createElement("li");
-    listItem.style.rotate = "180deg";
-    listItem.style.marginLeft = "-20px";
-    listItem.style.backgroundColor = "black";
-    listItem.style.marginTop= "20px";
-    listItem.style.padding = "1vw";
-    listItem.style.borderStyle = "solid"
-    listItem.style.borderColor = "white";
-    listItem.style.borderRadius = "10px";
-    listItem.style.lineHeight = "30px";
-    listItem.textContent = signal;
-    signalList.appendChild(listItem);
-    i = i - 1;
-  } catch (error) {
-    console.log("error getTradSignals", error);
-    clearInterval(interval2); 
-    signalList.style.display = "block";
-  }
-};
-
-
-var interval2;
-
-traBut.addEventListener("click", function(){
- borrarLista();
- console.log("presssss")
- interval2 = setInterval(asyncFunction, 500);
- async2();
-
-})
-
-const async2 = async function () {
-  try {
-    var accounts = await web3Instance1.eth.getAccounts();
-    signalList.style.display = "none";
+    const accounts = await web3Instance1.eth.getAccounts();
     contract2 = new web3Instance1.eth.Contract(
       CustomContractABI,
       CustomContract2
     );
+    console.log("CustomContract2 is " + CustomContract2);
+    const signalList2 = document.getElementById("signalList2");
+    var tradingSignalsCount = await contract2.methods
+      .getTraSignalsCount()
+      .call({ from: accounts[0] });
+    console.log("tradingSignalsCount = " + tradingSignalsCount);
 
-    // Obtener la longitud de la lista TradingSignals
-    i = await contract2.methods.TradingSignalsLength().call({
-      from: accounts[0],
-    }) - 1 ;
+    for (let i = tradingSignalsCount - 1; i >= 0; i--) {
+      var signalData = await contract2.methods
+        .getTraSignal(i)
+        .call({ from: accounts[0] });
+      const listItem = document.createElement("li");
+      listItem.className = "signal-item";
+      listItem.innerHTML = `
+        <div id="Entry">Entry: ${signalData[0]}</div>
+        <div id="SL">Stop Loss: ${signalData[1]}</div>
+        <div id="TP">Take Profit: ${signalData[2]}</div>
+        <div id="D">Direction: ${signalData[3]}</div>
+        <div id="sId">Signal ID: ${signalData[4]}</div>
+        `;
+      signalList2.appendChild(listItem);
+      signalList2.style.display = "block";
 
-    console.log("Longitud de la lista TradingSignals: " + i);
+    }
   } catch (error) {
-    console.error(
-      "Error al obtener la longitud de la lista TradingSignals: " + error
-    );
+    console.log("error getTradSignals", error);
   }
-};
-*/
+}
+
+function intervalToseeAList2() {
+  setInterval(viewTradingSignalList2, 60000);
+}
+
+
+
+
+
+
+
+
+
 
 
 //__________________________________________________
