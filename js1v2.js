@@ -128,7 +128,7 @@ const seeIfHasCreatedContract = async()=>{
     contract1 = new web3Instance1.eth.Contract(CustomContractABI, CustomContract);
     console.log("CustomContractAddress : " + CustomContract);
     console.log("seeIfHasCreatedContract called");
-    if(CustomContract !== "0x0000000000000000000000000000000000000000"){
+    if(web3.utils.isAddress(CustomContract)){
 	    console.log("enter in if");
     UpdateWithURL();} else {console.log("else it ok!")}
   } catch(error){console.log(error);}
@@ -145,7 +145,7 @@ CreateContract.addEventListener("click", async () => {
       contract1 = new web3Instance1.eth.Contract(CustomContractABI,CustomContract
       );
       console.log("CustomContractAddress : " + CustomContract);
-      if(CustomContract !== "0x0000000000000000000000000000000000000000"){
+      if(web3.utils.isAddress(CustomContract)){
 	    console.log("enter in if");
            UpdateWithURL();} else {console.log("else it ok!")}
     } catch (error) {
@@ -175,7 +175,7 @@ CreateContract.addEventListener("click", async () => {
       contract1 = new web3Instance1.eth.Contract(CustomContractABI,CustomContract
       );
       console.log("CustomContractAddress : " + CustomContract);
-      if(CustomContract !== "0x0000000000000000000000000000000000000000"){
+      if(web3.utils.isAddress(CustomContract)){
 	    console.log("enter in if");
           UpdateWithURL();} else {console.log("else it ok!")}
     } catch (error) {
