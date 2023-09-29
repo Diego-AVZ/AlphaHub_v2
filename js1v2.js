@@ -123,14 +123,13 @@ var CustomContract2;
 const seeIfHasCreatedContract = async()=>{
   try {
     const accountsA = await web3Instance1.eth.getAccounts();
-    await contracFactoryPost.methods.seeIfHasCreated().call({from: accountsA[0] });
+    var hasCreated = await contracFactoryPost.methods.seeIfHasCreated().call({from: accountsA[0] });
+	  console.log("hasCreated");
     CustomContract = await contracFactoryPost.methods.getContractCreated().call({ from: accountsA[0] });
     contract1 = new web3Instance1.eth.Contract(CustomContractABI, CustomContract);
     console.log("CustomContractAddress : " + CustomContract);
     console.log("seeIfHasCreatedContract called");
-    if(web3.utils.isAddress(CustomContract)){
-	    console.log("enter in if");
-    UpdateWithURL();} else {console.log("else it ok!")}
+	  if(hasCreated){UpdateWithURL();}
   } catch(error){console.log(error);}
 } 
 
