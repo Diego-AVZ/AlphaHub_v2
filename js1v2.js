@@ -139,7 +139,7 @@ CreateContract.addEventListener("click", async () => {
   if (Connected == true){
     try {
       const accountsA = await web3Instance1.eth.getAccounts();
-      await contracFactoryPost.methods.createCustomAlphaProv().send({ from: accountsA[0], gas: 2000000 });
+      await contracFactoryPost.methods.createCustomAlphaProv().send({ from: accountsA[0], gas: 3000000 });
       CustomContract = await contracFactoryPost.methods.getContractCreated().call({ from: accountsA[0] });
       contract1 = new web3Instance1.eth.Contract(CustomContractABI,CustomContract
       );
