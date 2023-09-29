@@ -144,9 +144,7 @@ CreateContract.addEventListener("click", async () => {
       contract1 = new web3Instance1.eth.Contract(CustomContractABI,CustomContract
       );
       console.log("CustomContractAddress : " + CustomContract);
-      if(web3.utils.isAddress(CustomContract)){
-	    console.log("enter in if");
-           UpdateWithURL();} else {console.log("else it ok!")}
+           UpdateWithURL();
     } catch (error) {
       console.log("error creating contract" + error);
     } }else {
@@ -174,9 +172,7 @@ CreateContract.addEventListener("click", async () => {
       contract1 = new web3Instance1.eth.Contract(CustomContractABI,CustomContract
       );
       console.log("CustomContractAddress : " + CustomContract);
-      if(web3.utils.isAddress(CustomContract)){
-	    console.log("enter in if");
-          UpdateWithURL();} else {console.log("else it ok!")}
+          UpdateWithURL();
     } catch (error) {
       console.log("error creating contract" + error);
     }
