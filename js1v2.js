@@ -128,7 +128,8 @@ const seeIfHasCreatedContract = async()=>{
     contract1 = new web3Instance1.eth.Contract(CustomContractABI, CustomContract);
     console.log("CustomContractAddress : " + CustomContract);
     console.log("seeIfHasCreatedContract called");
-    UpdateWithURL();
+    if(CustomContract !== 0x0000000000000000000000000000000000000000){	  
+    UpdateWithURL();}
   } catch(error){console.log(error);}
 } 
 
