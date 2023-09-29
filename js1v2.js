@@ -130,7 +130,7 @@ const seeIfHasCreatedContract = async()=>{
     console.log("seeIfHasCreatedContract called");
     if(CustomContract !== 0x0000000000000000000000000000000000000000){
 	    console.log("enter in if");
-    UpdateWithURL();} else {conslole.log("else it ok!")}
+    UpdateWithURL();} else {console.log("else it ok!")}
   } catch(error){console.log(error);}
 } 
 
@@ -147,7 +147,7 @@ CreateContract.addEventListener("click", async () => {
       console.log("CustomContractAddress : " + CustomContract);
       if(CustomContract !== 0x0000000000000000000000000000000000000000){
 	    console.log("enter in if");
-           UpdateWithURL();} else {conslole.log("else it ok!")}
+           UpdateWithURL();} else {console.log("else it ok!")}
     } catch (error) {
       console.log("error creating contract" + error);
     } }else {
@@ -177,7 +177,7 @@ CreateContract.addEventListener("click", async () => {
       console.log("CustomContractAddress : " + CustomContract);
       if(CustomContract !== 0x0000000000000000000000000000000000000000){
 	    console.log("enter in if");
-          UpdateWithURL();} else {conslole.log("else it ok!")}
+          UpdateWithURL();} else {console.log("else it ok!")}
     } catch (error) {
       console.log("error creating contract" + error);
     }
